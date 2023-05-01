@@ -27,12 +27,12 @@ class _HomepageState extends State<Homepage> {
   ///URL//
 
 //check up values//
-  double hume = 0.0;
-  double atm = 0.0;
-  double ph = 0.0;
-  var level = 0;
-  var turb = 0;
-  double temp = 0.0;
+  var hume = '-';
+  var atm = '-';
+  var ph = '-';
+  var level = "N/A";
+  var turb = "N/A";
+  var temp = "-";
 
 //check up values//
 
@@ -52,12 +52,12 @@ class _HomepageState extends State<Homepage> {
 
     Map<String, dynamic> log = json.decode(mqttProvider.rawLogData);
 
-    hume = log["humidity"] ?? 0;
-    atm = log["A_temperature"] ?? 0;
-    ph = log["PH"] ?? 0;
-    level = log[""] ?? 0;
-    turb = log["turbidity"] ?? 0;
-    temp = log["W_temperature"] ?? 0;
+    hume = '${log["HUM"]}';
+    atm = '${log["AT"]}';
+    ph = '${log["PH"]}';
+    level = '${log["WL"]}';
+    turb = '${log["TURB"]}';
+    temp = '${log["WT"]}';
 
     return Scaffold(
         backgroundColor: Colors.blue[100],
