@@ -1,5 +1,7 @@
-import 'package:aqua_phoenix/home.dart';
+import 'package:aqua_phoenix/provider/provider.dart';
+import 'package:aqua_phoenix/screen/home.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 void main(List<String> args) {
   runApp(MyApp());
@@ -10,8 +12,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Homepage(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (context) => Mqttprovider(),
+        )
+      ],
+      child: MaterialApp(
+        home: Homepage(),
+      ),
     );
   }
 }
